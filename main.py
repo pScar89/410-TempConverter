@@ -3,6 +3,8 @@ from time import sleep
 
 import conversion_functions as converters
 
+from art import text2art
+
 
 def clear_screen(delay: float = 0) -> None:
     sleep(delay)
@@ -10,7 +12,7 @@ def clear_screen(delay: float = 0) -> None:
 
 
 def display_title():
-    print("Temperature Unit Converter")
+    print(text2art("Temperature Unit Converter"))
 
 
 def display_menu():
@@ -29,21 +31,21 @@ def main():
     while run:
         display_menu()
 
-        choice = int(input("Which conversion would you like to do?\n"))
+        choice = int(input("\nWhich conversion would you like to do?\n"))
         clear_screen()
 
         temperature = int(input("What is the temperature to be converted?\n"))
         clear_screen()
 
         if choice == 1:
-            converted = round(converters.fahrenheit_to_celcius(temperature))
+            converted = converters.fahrenheit_to_celcius(temperature)
             print(f"{temperature} Fahrenheit is {converted} Celcius")
 
         if choice == 2:
-            converted = round(converters.celcius_to_fahrenheit(temperature))
+            converted = converters.celcius_to_fahrenheit(temperature)
             print(f"{temperature} Celcius is {converted} Fahrenheit")
 
-        if input("\nContinue?\n") != "y":
+        if input('\nContinue? ("y" or "n"\n') != "y":
             run = False
             clear_screen()
 
