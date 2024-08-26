@@ -1,3 +1,9 @@
+"""
+Pat S 8/26/24
+CIS410 Data Analytics
+This is a small program to convert between celcius and fahrenheit, and vice-versa
+"""
+
 import os
 from time import sleep
 
@@ -11,11 +17,11 @@ def clear_screen(delay: float = 0) -> None:
     os.system("cls" if os.name == "nt" else "clear")
 
 
-def display_title():
+def display_title() -> None:
     print(text2art("Temperature Unit Converter"))
 
 
-def display_menu():
+def display_menu() -> None:
     clear_screen()
 
     display_title()
@@ -25,7 +31,7 @@ def display_menu():
     print("2. Celcius to Fahrenheit")
 
 
-def main():
+def main() -> None:
     run = True
 
     while run:
@@ -50,4 +56,5 @@ def main():
             clear_screen()
 
 
-main()
+if __name__ == "__main__":
+    main()
